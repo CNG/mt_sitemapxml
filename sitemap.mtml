@@ -20,6 +20,15 @@
     This does not affect how your pages are compared to those of other sites.
 </mt:Ignore>
 <mt:SetVarTemplate name="dateformat"><$mt:EntryModifiedDate format="%Y-%m-%dT%H:%M:%S"$><$mt:BlogTimezone$></mt:SetVarTemplate>
+<mt:SetVarTemplate name="imageloop">
+        <mt:EntryAssets type="image" limit="1000">
+        <image:image>
+            <image:title><$mt:AssetLabel$></image:title>
+            <image:loc><$mt:AssetURL$></image:loc>
+            <mt:If tag="AssetDescription"><image:caption><$mt:AssetDescription$></image:caption></mt:If>
+        </image:image>
+        </mt:EntryAssets>
+</mt:SetVarTemplate>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url><$mt:TemplateNote note="The blog's homepage"$>
        <loc><$mt:BlogURL encode_xml="1"$></loc>
@@ -34,6 +43,7 @@
        <lastmod><$mt:Var name="dateformat"$></lastmod>
        <changefreq><$mt:Var name="page-frequency" _default="monthly"$></changefreq>
        <priority><$mt:Var name="page-priority" _default="0.8"$></priority>
+        <$mt:Var name="imageloop"$>       
    </url>
    </mt:Pages>
    <$mt:TemplateNote note="END pages"$>
@@ -46,6 +56,7 @@
        <lastmod><$mt:Var name="dateformat"$></lastmod>
        <changefreq><$mt:Var name="recent-entry-frequency" _default="hourly"$></changefreq>
        <priority><$mt:Var name="entry-priority" _default="1.0"$></priority>
+        <$mt:Var name="imageloop"$>       
    </url>
    </mt:Entries>
    <mt:Entries lastn="0" offset="10">
@@ -54,6 +65,7 @@
        <lastmod><$mt:Var name="dateformat"$></lastmod>
        <changefreq><$mt:Var name="past-entry-frequency" _default="monthly"$></changefreq>
        <priority><$mt:Var name="entry-priority" _default="1.0"$></priority>
+        <$mt:Var name="imageloop"$>       
    </url>
    </mt:Entries>
    </mt:IfArchiveTypeEnabled>
