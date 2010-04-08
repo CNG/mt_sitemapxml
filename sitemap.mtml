@@ -19,7 +19,7 @@
     Do not set these all to a high value, as that's functionally no different from setting them all to 0.0. 
     This does not affect how your pages are compared to those of other sites.
 </mt:Ignore>
-<mt:SetVarTemplate name="dateformat"><$mt:PageModifiedDate format="%Y-%m-%dT%H:%M:%S"$><$mt:BlogTimezone$></mt:SetVarTemplate>
+<mt:SetVarTemplate name="dateformat"><$mt:EntryModifiedDate format="%Y-%m-%dT%H:%M:%S"$><$mt:BlogTimezone$></mt:SetVarTemplate>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url><$mt:TemplateNote note="The blog's homepage"$>
        <loc><$mt:BlogURL encode_xml="1"$></loc>
@@ -31,7 +31,7 @@
    <mt:Pages lastn="0">
    <url>
        <loc><$mt:PagePermalink encode_xml="1"$></loc>
-       <lastmod><$mt:PageModifiedDate format="%Y-%m-%dT%H:%M:%S"$><$mt:BlogTimezone$></lastmod>
+       <lastmod><$mt:Var name="dateformat"$></lastmod>
        <changefreq><$mt:Var name="page-frequency" _default="monthly"$></changefreq>
        <priority><$mt:Var name="page-priority" _default="0.8"$></priority>
    </url>
@@ -43,7 +43,7 @@
    <mt:Entries lastn="10">
    <url><mt:Ignore> ### The recent items you post are more likely to be active(comments, etc) than older ones.</mt:Ignore>
        <loc><$mt:EntryPermalink encode_xml="1"$></loc>
-       <lastmod><$mt:EntryModifiedDate format="%Y-%m-%dT%H:%M:%S"$><$mt:BlogTimezone$></lastmod>
+       <lastmod><$mt:Var name="dateformat"$></lastmod>
        <changefreq><$mt:Var name="recent-entry-frequency" _default="hourly"$></changefreq>
        <priority><$mt:Var name="entry-priority" _default="1.0"$></priority>
    </url>
@@ -51,7 +51,7 @@
    <mt:Entries lastn="0" offset="10">
    <url><mt:Ignore> ### And the rest of them.</mt:Ignore>
        <loc><$mt:EntryPermalink encode_xml="1"$></loc>
-       <lastmod><$mt:EntryModifiedDate format="%Y-%m-%dT%H:%M:%S"$><$mt:BlogTimezone$></lastmod>
+       <lastmod><$mt:Var name="dateformat"$></lastmod>
        <changefreq><$mt:Var name="past-entry-frequency" _default="monthly"$></changefreq>
        <priority><$mt:Var name="entry-priority" _default="1.0"$></priority>
    </url>
@@ -64,7 +64,7 @@
    <mt:Categories>
    <url>
    <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:EntryModifiedDate format="%Y-%m-%dT%H:%M:%S"$><$mt:BlogTimezone$></mt:Entries></lastmod>
+       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
        <changefreq><$mt:Var name="category-frequency" _default="weekly"$></changefreq>
        <priority><$mt:Var name="category-priority" _default="0.8"$></priority>
    </url>
@@ -74,7 +74,7 @@
    <mt:ArchiveList archive_type="Category - Monthly">
    <url>
    <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:EntryModifiedDate format="%Y-%m-%dT%H:%M:%S"$><$mt:BlogTimezone$></mt:Entries></lastmod>
+       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
        <changefreq><$mt:Var name="category-frequency" _default="weekly"$></changefreq>
        <priority><$mt:Var name="category-priority" _default="0.8"$></priority>
    </url>
@@ -84,7 +84,7 @@
    <mt:ArchiveList archive_type="Category - Weekly">
    <url>
    <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:EntryModifiedDate format="%Y-%m-%dT%H:%M:%S"$><$mt:BlogTimezone$></mt:Entries></lastmod>
+       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
        <changefreq><$mt:Var name="category-frequency" _default="daily"$></changefreq>
        <priority><$mt:Var name="category-priority" _default="0.8"$></priority>
    </url>
@@ -94,7 +94,7 @@
    <mt:ArchiveList archive_type="Category - Daily">
    <url>
    <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:EntryModifiedDate format="%Y-%m-%dT%H:%M:%S"$><$mt:BlogTimezone$></mt:Entries></lastmod>
+       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
        <changefreq><$mt:Var name="category-frequency" _default="daily"$></changefreq>
        <priority><$mt:Var name="category-priority" _default="0.8"$></priority>
    </url>
@@ -107,7 +107,7 @@
    <mt:ArchiveList archive_type="Monthly" lastn="1">
    <url><mt:Ignore> ### The current month is still being updated.</mt:Ignore>
        <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:EntryModifiedDate format="%Y-%m-%dT%H:%M:%S"$><$mt:BlogTimezone$></mt:Entries></lastmod>
+       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
        <changefreq><$mt:Var name="current-monthly-frequency" _default="daily"$></changefreq>
        <priority><$mt:Var name="monthly-priority" _default="0.6"$></priority>
    </url>
@@ -115,7 +115,7 @@
    <mt:ArchiveList archive_type="Monthly" lastn="0" offset="1">
    <url><mt:Ignore> ### Past months are just archived.</mt:Ignore>
        <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:EntryModifiedDate format="%Y-%m-%dT%H:%M:%S"$><$mt:BlogTimezone$></mt:Entries></lastmod>
+       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
        <changefreq><$mt:Var name="past-monthly-frequency" _default="never"$></changefreq>
        <priority><$mt:Var name="monthly-priority" _default="0.6"$></priority>
    </url>
@@ -128,7 +128,7 @@
    <mt:ArchiveList archive_type="Weekly" lastn="1">
    <url><mt:Ignore> ### The current week is still being updated.</mt:Ignore>
        <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:EntryModifiedDate format="%Y-%m-%dT%H:%M:%S"$><$mt:BlogTimezone$></mt:Entries></lastmod>
+       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
        <changefreq><$mt:Var name="current-weekly-frequency" _default="daily"$></changefreq>
        <priority><$mt:Var name="weekly-priority" _default="0.4"$></priority>
    </url>
@@ -136,7 +136,7 @@
    <mt:ArchiveList archive_type="Weekly" lastn="0" offset="1">
    <url><mt:Ignore> ### Past weeks are just archived.</mt:Ignore>
        <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:EntryModifiedDate format="%Y-%m-%dT%H:%M:%S"$><$mt:BlogTimezone$></mt:Entries></lastmod>
+       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
        <changefreq><$mt:Var name="past-weekly-frequency" _default="never"$></changefreq>
        <priority><$mt:Var name="weekly-priority" _default="0.4"$></priority>
    </url>
@@ -149,7 +149,7 @@
    <mt:ArchiveList archive_type="Daily" lastn="1">
    <url><mt:Ignore> ### The current day is still being updated.</mt:Ignore>
        <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:EntryModifiedDate format="%Y-%m-%dT%H:%M:%S"$><$mt:BlogTimezone$></mt:Entries></lastmod>
+       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
        <changefreq><$mt:Var name="current-daily-frequency" _default="hourly"$></changefreq>
        <priority><$mt:Var name="daily-priority" _default="0.2"$></priority>
    </url>
@@ -157,7 +157,7 @@
    <mt:ArchiveList archive_type="Daily" lastn="0" offset="1">
    <url><mt:Ignore> ### Past days are just archived.</mt:Ignore>
        <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:EntryModifiedDate format="%Y-%m-%dT%H:%M:%S"$><$mt:BlogTimezone$></mt:Entries></lastmod>
+       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
        <changefreq><$mt:Var name="past-daily-frequency" _default="never"$></changefreq>
        <priority><$mt:Var name="daily-priority" _default="0.2"$></priority>
    </url>
@@ -170,7 +170,7 @@
    <mt:ArchiveList archive_type="Author">
    <url>
        <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:EntryModifiedDate format="%Y-%m-%dT%H:%M:%S"$><$mt:BlogTimezone$></mt:Entries></lastmod>
+       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
        <changefreq><$mt:Var name="author-frequency" _default="weekly"$></changefreq>
        <priority><$mt:Var name="author-priority" _default="0.5"$></priority>
    </url>
@@ -180,7 +180,7 @@
    <mt:ArchiveList archive_type="Author - Monthly">
    <url>
        <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:EntryModifiedDate format="%Y-%m-%dT%H:%M:%S"$><$mt:BlogTimezone$></mt:Entries></lastmod>
+       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
        <changefreq><$mt:Var name="author-frequency" _default="weekly"$></changefreq>
        <priority><$mt:Var name="author-priority" _default="0.5"$></priority>
    </url>
@@ -190,7 +190,7 @@
    <mt:ArchiveList archive_type="Author - Weekly">
    <url>
        <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:EntryModifiedDate format="%Y-%m-%dT%H:%M:%S"$><$mt:BlogTimezone$></mt:Entries></lastmod>
+       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
        <changefreq><$mt:Var name="author-frequency" _default="weekly"$></changefreq>
        <priority><$mt:Var name="author-priority" _default="0.5"$></priority>
    </url>
@@ -200,7 +200,7 @@
    <mt:ArchiveList archive_type="Author - Daily">
    <url>
        <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:EntryModifiedDate format="%Y-%m-%dT%H:%M:%S"$><$mt:BlogTimezone$></mt:Entries></lastmod>
+       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
        <changefreq><$mt:Var name="author-frequency" _default="daily"$></changefreq>
        <priority><$mt:Var name="author-priority" _default="0.5"$></priority>
    </url>
