@@ -28,7 +28,7 @@
    </url>
 
    <$mt:TemplateNote note="START pages"$>
-   <mt:Pages limit="999999">
+   <mt:Pages lastn="0">
    <url>
        <loc><$mt:PagePermalink encode_xml="1"$></loc>
        <lastmod><$mt:PageModifiedDate format="%Y-%m-%dT%H:%M:%S"$><$mt:BlogTimezone$></lastmod>
@@ -48,7 +48,7 @@
        <priority><$mt:Var name="entry-priority" _default="1.0"$></priority>
    </url>
    </mt:Entries>
-   <mt:Entries lastn="999999" offset="10">
+   <mt:Entries lastn="0" offset="10">
    <url><mt:Ignore> ### And the rest of them.</mt:Ignore>
        <loc><$mt:EntryPermalink encode_xml="1"$></loc>
        <lastmod><$mt:EntryModifiedDate format="%Y-%m-%dT%H:%M:%S"$><$mt:BlogTimezone$></lastmod>
@@ -112,7 +112,7 @@
        <priority><$mt:Var name="monthly-priority" _default="0.6"$></priority>
    </url>
    </mt:ArchiveList>
-   <mt:ArchiveList archive_type="Monthly" lastn="9999" offset="1">
+   <mt:ArchiveList archive_type="Monthly" lastn="0" offset="1">
    <url><mt:Ignore> ### Past months are just archived.</mt:Ignore>
        <loc><$mt:ArchiveLink encode_xml="1"$></loc>
        <lastmod><mt:Entries lastn="1"><$mt:EntryModifiedDate format="%Y-%m-%dT%H:%M:%S"$><$mt:BlogTimezone$></mt:Entries></lastmod>
@@ -133,7 +133,7 @@
        <priority><$mt:Var name="weekly-priority" _default="0.4"$></priority>
    </url>
    </mt:ArchiveList>
-   <mt:ArchiveList archive_type="Weekly" lastn="9999" offset="1">
+   <mt:ArchiveList archive_type="Weekly" lastn="0" offset="1">
    <url><mt:Ignore> ### Past weeks are just archived.</mt:Ignore>
        <loc><$mt:ArchiveLink encode_xml="1"$></loc>
        <lastmod><mt:Entries lastn="1"><$mt:EntryModifiedDate format="%Y-%m-%dT%H:%M:%S"$><$mt:BlogTimezone$></mt:Entries></lastmod>
@@ -154,7 +154,7 @@
        <priority><$mt:Var name="daily-priority" _default="0.2"$></priority>
    </url>
    </mt:ArchiveList>
-   <mt:ArchiveList archive_type="Daily" lastn="9999" offset="1">
+   <mt:ArchiveList archive_type="Daily" lastn="0" offset="1">
    <url><mt:Ignore> ### Past days are just archived.</mt:Ignore>
        <loc><$mt:ArchiveLink encode_xml="1"$></loc>
        <lastmod><mt:Entries lastn="1"><$mt:EntryModifiedDate format="%Y-%m-%dT%H:%M:%S"$><$mt:BlogTimezone$></mt:Entries></lastmod>
