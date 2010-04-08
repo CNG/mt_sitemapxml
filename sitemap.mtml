@@ -37,193 +37,193 @@
         </mt:EntryAssets>
 </mt:SetVarTemplate>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-   <url><$mt:TemplateNote note="The blog's homepage"$>
-       <loc><$mt:BlogURL encode_xml="1"$></loc>
-       <changefreq><$mt:Var name="home-frequency" _default="daily"$></changefreq>
-       <priority><$mt:Var name="home-priority" _default="1.0"$></priority>
-   </url>
-
-   <$mt:TemplateNote note="START pages"$>
-   <mt:Pages lastn="0">
-   <url>
-       <loc><$mt:PagePermalink encode_xml="1"$></loc>
-       <lastmod><$mt:Var name="dateformat"$></lastmod>
-       <changefreq><$mt:Var name="page-frequency" _default="monthly"$></changefreq>
-       <priority><$mt:Var name="page-priority" _default="0.8"$></priority>
+    <url><$mt:TemplateNote note="The blog's homepage"$>
+        <loc><$mt:BlogURL encode_xml="1"$></loc>
+        <changefreq><$mt:Var name="home-frequency" _default="daily"$></changefreq>
+        <priority><$mt:Var name="home-priority" _default="1.0"$></priority>
+    </url>
+    
+    <$mt:TemplateNote note="START pages"$>
+    <mt:Pages lastn="0">
+    <url>
+        <loc><$mt:PagePermalink encode_xml="1"$></loc>
+        <lastmod><$mt:Var name="dateformat"$></lastmod>
+        <changefreq><$mt:Var name="page-frequency" _default="monthly"$></changefreq>
+        <priority><$mt:Var name="page-priority" _default="0.8"$></priority>
         <$mt:Var name="imageloop"$>       
-   </url>
-   </mt:Pages>
-   <$mt:TemplateNote note="END pages"$>
-
-   <$mt:TemplateNote note="START individual archives"$>
-   <mt:IfArchiveTypeEnabled archive_type="Individual">
-   <mt:Entries lastn="10">
-   <url><mt:Ignore> ### The recent items you post are more likely to be active(comments, etc) than older ones.</mt:Ignore>
-       <loc><$mt:EntryPermalink encode_xml="1"$></loc>
-       <lastmod><$mt:Var name="dateformat"$></lastmod>
-       <changefreq><$mt:Var name="recent-entry-frequency" _default="hourly"$></changefreq>
-       <priority><$mt:Var name="entry-priority" _default="1.0"$></priority>
+    </url>
+    </mt:Pages>
+    <$mt:TemplateNote note="END pages"$>
+    
+    <$mt:TemplateNote note="START individual archives"$>
+    <mt:IfArchiveTypeEnabled archive_type="Individual">
+    <mt:Entries lastn="10">
+    <url><mt:Ignore> ### The recent items you post are more likely to be active(comments, etc) than older ones.</mt:Ignore>
+        <loc><$mt:EntryPermalink encode_xml="1"$></loc>
+        <lastmod><$mt:Var name="dateformat"$></lastmod>
+        <changefreq><$mt:Var name="recent-entry-frequency" _default="hourly"$></changefreq>
+        <priority><$mt:Var name="entry-priority" _default="1.0"$></priority>
         <$mt:Var name="imageloop"$>       
-   </url>
-   </mt:Entries>
-   <mt:Entries lastn="0" offset="10">
-   <url><mt:Ignore> ### And the rest of them.</mt:Ignore>
-       <loc><$mt:EntryPermalink encode_xml="1"$></loc>
-       <lastmod><$mt:Var name="dateformat"$></lastmod>
-       <changefreq><$mt:Var name="past-entry-frequency" _default="monthly"$></changefreq>
-       <priority><$mt:Var name="entry-priority" _default="1.0"$></priority>
+    </url>
+    </mt:Entries>
+    <mt:Entries lastn="0" offset="10">
+    <url><mt:Ignore> ### And the rest of them.</mt:Ignore>
+        <loc><$mt:EntryPermalink encode_xml="1"$></loc>
+        <lastmod><$mt:Var name="dateformat"$></lastmod>
+        <changefreq><$mt:Var name="past-entry-frequency" _default="monthly"$></changefreq>
+        <priority><$mt:Var name="entry-priority" _default="1.0"$></priority>
         <$mt:Var name="imageloop"$>       
-   </url>
-   </mt:Entries>
-   </mt:IfArchiveTypeEnabled>
-   <$mt:TemplateNote note="END individual archives"$>
-
-   <$mt:TemplateNote note="START category archives"$>
-   <mt:IfArchiveTypeEnabled archive_type="Category">
-   <mt:Categories>
-   <url>
-   <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
-       <changefreq><$mt:Var name="category-frequency" _default="weekly"$></changefreq>
-       <priority><$mt:Var name="category-priority" _default="0.8"$></priority>
-   </url>
-   </mt:Categories>
-   </mt:IfArchiveTypeEnabled>
-   <mt:IfArchiveTypeEnabled archive_type="Category - Monthly">
-   <mt:ArchiveList archive_type="Category - Monthly">
-   <url>
-   <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
-       <changefreq><$mt:Var name="category-frequency" _default="weekly"$></changefreq>
-       <priority><$mt:Var name="category-priority" _default="0.8"$></priority>
-   </url>
-   </mt:ArchiveList>
-   </mt:IfArchiveTypeEnabled>
-   <mt:IfArchiveTypeEnabled archive_type="Category - Weekly">
-   <mt:ArchiveList archive_type="Category - Weekly">
-   <url>
-   <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
-       <changefreq><$mt:Var name="category-frequency" _default="daily"$></changefreq>
-       <priority><$mt:Var name="category-priority" _default="0.8"$></priority>
-   </url>
-   </mt:ArchiveList>
-   </mt:IfArchiveTypeEnabled>
-   <mt:IfArchiveTypeEnabled archive_type="Category - Daily">
-   <mt:ArchiveList archive_type="Category - Daily">
-   <url>
-   <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
-       <changefreq><$mt:Var name="category-frequency" _default="daily"$></changefreq>
-       <priority><$mt:Var name="category-priority" _default="0.8"$></priority>
-   </url>
-   </mt:ArchiveList>
-   </mt:IfArchiveTypeEnabled>
-   <$mt:TemplateNote note="END category archives"$>
-   
-   <$mt:TemplateNote note="START monthly archives"$>
-   <mt:IfArchiveTypeEnabled archive_type="Monthly">
-   <mt:ArchiveList archive_type="Monthly" lastn="1">
-   <url><mt:Ignore> ### The current month is still being updated.</mt:Ignore>
-       <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
-       <changefreq><$mt:Var name="current-monthly-frequency" _default="daily"$></changefreq>
-       <priority><$mt:Var name="monthly-priority" _default="0.6"$></priority>
-   </url>
-   </mt:ArchiveList>
-   <mt:ArchiveList archive_type="Monthly" lastn="0" offset="1">
-   <url><mt:Ignore> ### Past months are just archived.</mt:Ignore>
-       <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
-       <changefreq><$mt:Var name="past-monthly-frequency" _default="never"$></changefreq>
-       <priority><$mt:Var name="monthly-priority" _default="0.6"$></priority>
-   </url>
-   </mt:ArchiveList>
-   </mt:IfArchiveTypeEnabled>
-   <$mt:TemplateNote note="END monthly archives"$>
-
-   <$mt:TemplateNote note="START weekly archives"$>
-   <mt:IfArchiveTypeEnabled archive_type="Weekly">
-   <mt:ArchiveList archive_type="Weekly" lastn="1">
-   <url><mt:Ignore> ### The current week is still being updated.</mt:Ignore>
-       <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
-       <changefreq><$mt:Var name="current-weekly-frequency" _default="daily"$></changefreq>
-       <priority><$mt:Var name="weekly-priority" _default="0.4"$></priority>
-   </url>
-   </mt:ArchiveList>
-   <mt:ArchiveList archive_type="Weekly" lastn="0" offset="1">
-   <url><mt:Ignore> ### Past weeks are just archived.</mt:Ignore>
-       <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
-       <changefreq><$mt:Var name="past-weekly-frequency" _default="never"$></changefreq>
-       <priority><$mt:Var name="weekly-priority" _default="0.4"$></priority>
-   </url>
-   </mt:ArchiveList>
-   </mt:IfArchiveTypeEnabled>
-   <$mt:TemplateNote note="END weekly archives"$>
-   
-   <$mt:TemplateNote note="START daily archives"$>
-   <mt:IfArchiveTypeEnabled archive_type="Daily">
-   <mt:ArchiveList archive_type="Daily" lastn="1">
-   <url><mt:Ignore> ### The current day is still being updated.</mt:Ignore>
-       <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
-       <changefreq><$mt:Var name="current-daily-frequency" _default="hourly"$></changefreq>
-       <priority><$mt:Var name="daily-priority" _default="0.2"$></priority>
-   </url>
-   </mt:ArchiveList>
-   <mt:ArchiveList archive_type="Daily" lastn="0" offset="1">
-   <url><mt:Ignore> ### Past days are just archived.</mt:Ignore>
-       <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
-       <changefreq><$mt:Var name="past-daily-frequency" _default="never"$></changefreq>
-       <priority><$mt:Var name="daily-priority" _default="0.2"$></priority>
-   </url>
-   </mt:ArchiveList>
-   </mt:IfArchiveTypeEnabled>
-   <$mt:TemplateNote note="END daily archives"$>
-
-   <$mt:TemplateNote note="START author archives"$>
-   <mt:IfArchiveTypeEnabled archive_type="Author">
-   <mt:ArchiveList archive_type="Author">
-   <url>
-       <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
-       <changefreq><$mt:Var name="author-frequency" _default="weekly"$></changefreq>
-       <priority><$mt:Var name="author-priority" _default="0.5"$></priority>
-   </url>
-   </mt:ArchiveList>
-   </mt:IfArchiveTypeEnabled>
-   <mt:IfArchiveTypeEnabled archive_type="Author - Monthly">
-   <mt:ArchiveList archive_type="Author - Monthly">
-   <url>
-       <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
-       <changefreq><$mt:Var name="author-frequency" _default="weekly"$></changefreq>
-       <priority><$mt:Var name="author-priority" _default="0.5"$></priority>
-   </url>
-   </mt:ArchiveList>
-   </mt:IfArchiveTypeEnabled>
-   <mt:IfArchiveTypeEnabled archive_type="Author - Weekly">
-   <mt:ArchiveList archive_type="Author - Weekly">
-   <url>
-       <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
-       <changefreq><$mt:Var name="author-frequency" _default="weekly"$></changefreq>
-       <priority><$mt:Var name="author-priority" _default="0.5"$></priority>
-   </url>
-   </mt:ArchiveList>
-   </mt:IfArchiveTypeEnabled>
-   <mt:IfArchiveTypeEnabled archive_type="Author - Daily">
-   <mt:ArchiveList archive_type="Author - Daily">
-   <url>
-       <loc><$mt:ArchiveLink encode_xml="1"$></loc>
-       <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
-       <changefreq><$mt:Var name="author-frequency" _default="daily"$></changefreq>
-       <priority><$mt:Var name="author-priority" _default="0.5"$></priority>
-   </url>
-   </mt:ArchiveList>
-   </mt:IfArchiveTypeEnabled>
-   <$mt:TemplateNote note="END author archives"$>
+    </url>
+    </mt:Entries>
+    </mt:IfArchiveTypeEnabled>
+    <$mt:TemplateNote note="END individual archives"$>
+    
+    <$mt:TemplateNote note="START category archives"$>
+    <mt:IfArchiveTypeEnabled archive_type="Category">
+    <mt:Categories>
+    <url>
+    <loc><$mt:ArchiveLink encode_xml="1"$></loc>
+        <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
+        <changefreq><$mt:Var name="category-frequency" _default="weekly"$></changefreq>
+        <priority><$mt:Var name="category-priority" _default="0.8"$></priority>
+    </url>
+    </mt:Categories>
+    </mt:IfArchiveTypeEnabled>
+    <mt:IfArchiveTypeEnabled archive_type="Category - Monthly">
+    <mt:ArchiveList archive_type="Category - Monthly">
+    <url>
+    <loc><$mt:ArchiveLink encode_xml="1"$></loc>
+        <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
+        <changefreq><$mt:Var name="category-frequency" _default="weekly"$></changefreq>
+        <priority><$mt:Var name="category-priority" _default="0.8"$></priority>
+    </url>
+    </mt:ArchiveList>
+    </mt:IfArchiveTypeEnabled>
+    <mt:IfArchiveTypeEnabled archive_type="Category - Weekly">
+    <mt:ArchiveList archive_type="Category - Weekly">
+    <url>
+    <loc><$mt:ArchiveLink encode_xml="1"$></loc>
+        <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
+        <changefreq><$mt:Var name="category-frequency" _default="daily"$></changefreq>
+        <priority><$mt:Var name="category-priority" _default="0.8"$></priority>
+    </url>
+    </mt:ArchiveList>
+    </mt:IfArchiveTypeEnabled>
+    <mt:IfArchiveTypeEnabled archive_type="Category - Daily">
+    <mt:ArchiveList archive_type="Category - Daily">
+    <url>
+    <loc><$mt:ArchiveLink encode_xml="1"$></loc>
+        <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
+        <changefreq><$mt:Var name="category-frequency" _default="daily"$></changefreq>
+        <priority><$mt:Var name="category-priority" _default="0.8"$></priority>
+    </url>
+    </mt:ArchiveList>
+    </mt:IfArchiveTypeEnabled>
+    <$mt:TemplateNote note="END category archives"$>
+    
+    <$mt:TemplateNote note="START monthly archives"$>
+    <mt:IfArchiveTypeEnabled archive_type="Monthly">
+    <mt:ArchiveList archive_type="Monthly" lastn="1">
+    <url><mt:Ignore> ### The current month is still being updated.</mt:Ignore>
+        <loc><$mt:ArchiveLink encode_xml="1"$></loc>
+        <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
+        <changefreq><$mt:Var name="current-monthly-frequency" _default="daily"$></changefreq>
+        <priority><$mt:Var name="monthly-priority" _default="0.6"$></priority>
+    </url>
+    </mt:ArchiveList>
+    <mt:ArchiveList archive_type="Monthly" lastn="0" offset="1">
+    <url><mt:Ignore> ### Past months are just archived.</mt:Ignore>
+        <loc><$mt:ArchiveLink encode_xml="1"$></loc>
+        <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
+        <changefreq><$mt:Var name="past-monthly-frequency" _default="never"$></changefreq>
+        <priority><$mt:Var name="monthly-priority" _default="0.6"$></priority>
+    </url>
+    </mt:ArchiveList>
+    </mt:IfArchiveTypeEnabled>
+    <$mt:TemplateNote note="END monthly archives"$>
+    
+    <$mt:TemplateNote note="START weekly archives"$>
+    <mt:IfArchiveTypeEnabled archive_type="Weekly">
+    <mt:ArchiveList archive_type="Weekly" lastn="1">
+    <url><mt:Ignore> ### The current week is still being updated.</mt:Ignore>
+        <loc><$mt:ArchiveLink encode_xml="1"$></loc>
+        <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
+        <changefreq><$mt:Var name="current-weekly-frequency" _default="daily"$></changefreq>
+        <priority><$mt:Var name="weekly-priority" _default="0.4"$></priority>
+    </url>
+    </mt:ArchiveList>
+    <mt:ArchiveList archive_type="Weekly" lastn="0" offset="1">
+    <url><mt:Ignore> ### Past weeks are just archived.</mt:Ignore>
+        <loc><$mt:ArchiveLink encode_xml="1"$></loc>
+        <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
+        <changefreq><$mt:Var name="past-weekly-frequency" _default="never"$></changefreq>
+        <priority><$mt:Var name="weekly-priority" _default="0.4"$></priority>
+    </url>
+    </mt:ArchiveList>
+    </mt:IfArchiveTypeEnabled>
+    <$mt:TemplateNote note="END weekly archives"$>
+    
+    <$mt:TemplateNote note="START daily archives"$>
+    <mt:IfArchiveTypeEnabled archive_type="Daily">
+    <mt:ArchiveList archive_type="Daily" lastn="1">
+    <url><mt:Ignore> ### The current day is still being updated.</mt:Ignore>
+        <loc><$mt:ArchiveLink encode_xml="1"$></loc>
+        <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
+        <changefreq><$mt:Var name="current-daily-frequency" _default="hourly"$></changefreq>
+        <priority><$mt:Var name="daily-priority" _default="0.2"$></priority>
+    </url>
+    </mt:ArchiveList>
+    <mt:ArchiveList archive_type="Daily" lastn="0" offset="1">
+    <url><mt:Ignore> ### Past days are just archived.</mt:Ignore>
+        <loc><$mt:ArchiveLink encode_xml="1"$></loc>
+        <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
+        <changefreq><$mt:Var name="past-daily-frequency" _default="never"$></changefreq>
+        <priority><$mt:Var name="daily-priority" _default="0.2"$></priority>
+    </url>
+    </mt:ArchiveList>
+    </mt:IfArchiveTypeEnabled>
+    <$mt:TemplateNote note="END daily archives"$>
+    
+    <$mt:TemplateNote note="START author archives"$>
+    <mt:IfArchiveTypeEnabled archive_type="Author">
+    <mt:ArchiveList archive_type="Author">
+    <url>
+        <loc><$mt:ArchiveLink encode_xml="1"$></loc>
+        <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
+        <changefreq><$mt:Var name="author-frequency" _default="weekly"$></changefreq>
+        <priority><$mt:Var name="author-priority" _default="0.5"$></priority>
+    </url>
+    </mt:ArchiveList>
+    </mt:IfArchiveTypeEnabled>
+    <mt:IfArchiveTypeEnabled archive_type="Author - Monthly">
+    <mt:ArchiveList archive_type="Author - Monthly">
+    <url>
+        <loc><$mt:ArchiveLink encode_xml="1"$></loc>
+        <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
+        <changefreq><$mt:Var name="author-frequency" _default="weekly"$></changefreq>
+        <priority><$mt:Var name="author-priority" _default="0.5"$></priority>
+    </url>
+    </mt:ArchiveList>
+    </mt:IfArchiveTypeEnabled>
+    <mt:IfArchiveTypeEnabled archive_type="Author - Weekly">
+    <mt:ArchiveList archive_type="Author - Weekly">
+    <url>
+        <loc><$mt:ArchiveLink encode_xml="1"$></loc>
+        <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
+        <changefreq><$mt:Var name="author-frequency" _default="weekly"$></changefreq>
+        <priority><$mt:Var name="author-priority" _default="0.5"$></priority>
+    </url>
+    </mt:ArchiveList>
+    </mt:IfArchiveTypeEnabled>
+    <mt:IfArchiveTypeEnabled archive_type="Author - Daily">
+    <mt:ArchiveList archive_type="Author - Daily">
+    <url>
+        <loc><$mt:ArchiveLink encode_xml="1"$></loc>
+        <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
+        <changefreq><$mt:Var name="author-frequency" _default="daily"$></changefreq>
+        <priority><$mt:Var name="author-priority" _default="0.5"$></priority>
+    </url>
+    </mt:ArchiveList>
+    </mt:IfArchiveTypeEnabled>
+    <$mt:TemplateNote note="END author archives"$>
 </urlset>
