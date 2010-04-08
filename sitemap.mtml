@@ -18,14 +18,21 @@
     Values for priority range from 0.0 to 1.0 and reflect the *relative* importance of pages within your site.
     Do not set these all to a high value, as that's functionally no different from setting them all to 0.0. 
     This does not affect how your pages are compared to those of other sites.
+
+    MT has no standard per-image license field, but if you want to specify a single one to cover everything, 
+    un-Ignore the "defaultimagelicense" SetVarBlock below, and it will be inserted throughout automatically.
 </mt:Ignore>
 <mt:SetVarTemplate name="dateformat"><$mt:EntryModifiedDate format="%Y-%m-%dT%H:%M:%S"$><$mt:BlogTimezone$></mt:SetVarTemplate>
+<mt:Ignore>
+<mt:SetVarBlock name="defaultimagelicense">LICENSE_URL</mt:SetVarBlock>
+</mt:Ignore>
 <mt:SetVarTemplate name="imageloop">
         <mt:EntryAssets type="image" limit="1000">
         <image:image>
             <image:title><$mt:AssetLabel$></image:title>
             <image:loc><$mt:AssetURL$></image:loc>
             <mt:If tag="AssetDescription"><image:caption><$mt:AssetDescription$></image:caption></mt:If>
+            <mt:If name="defaultimagelicense"><image:license><$mt:Var name="defaultimagelicense"$></image:license></mt:If>
         </image:image>
         </mt:EntryAssets>
 </mt:SetVarTemplate>
