@@ -26,6 +26,7 @@
 <mt:Ignore>
 <mt:SetVarBlock name="defaultimagelicense">LICENSE_URL</mt:SetVarBlock>
 </mt:Ignore>
+<mt:if name="include_images">
 <mt:SetVarTemplate name="imageloop">
         <mt:EntryAssets type="image" limit="1000">
         <image:image>
@@ -36,6 +37,7 @@
         </image:image>
         </mt:EntryAssets>
 </mt:SetVarTemplate>
+</mt:if>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url><$mt:TemplateNote note="The blog's homepage"$>
         <loc><$mt:BlogURL encode_xml="1"$></loc>
@@ -50,7 +52,9 @@
         <lastmod><$mt:Var name="dateformat"$></lastmod>
         <changefreq><$mt:Var name="page-frequency" _default="monthly"$></changefreq>
         <priority><$mt:Var name="page-priority" _default="0.8"$></priority>
-        <$mt:Var name="imageloop"$>       
+        <mt:if name="include_images">
+        <$mt:Var name="imageloop"$>
+        </mt:if>
     </url>
     </mt:Pages>
     <$mt:TemplateNote note="END pages"$>
@@ -63,7 +67,9 @@
         <lastmod><$mt:Var name="dateformat"$></lastmod>
         <changefreq><$mt:Var name="recent-entry-frequency" _default="hourly"$></changefreq>
         <priority><$mt:Var name="entry-priority" _default="1.0"$></priority>
-        <$mt:Var name="imageloop"$>       
+        <mt:if name="include_images">
+        <$mt:Var name="imageloop"$>
+        </mt:if>
     </url>
     </mt:Entries>
     <mt:Entries lastn="0" offset="10">
@@ -72,7 +78,9 @@
         <lastmod><$mt:Var name="dateformat"$></lastmod>
         <changefreq><$mt:Var name="past-entry-frequency" _default="monthly"$></changefreq>
         <priority><$mt:Var name="entry-priority" _default="1.0"$></priority>
-        <$mt:Var name="imageloop"$>       
+        <mt:if name="include_images">
+        <$mt:Var name="imageloop"$>
+        </mt:if>
     </url>
     </mt:Entries>
     </mt:IfArchiveTypeEnabled>
