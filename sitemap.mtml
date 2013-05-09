@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mt:Ignore>
-    Canonical sitemap.xml template v0.8
+    Canonical sitemap.xml template v0.81
 
     Possible values for the frequency variables are:
     
@@ -90,7 +90,7 @@
     <mt:IfArchiveTypeEnabled archive_type="Category">
     <mt:Categories>
     <url>
-    <loc><$mt:ArchiveLink encode_xml="1"$></loc>
+    <loc><$mt:ArchiveLink archive_type="Category" encode_xml="1"$></loc>
         <lastmod><mt:Entries lastn="1"><$mt:Var name="dateformat"$></mt:Entries></lastmod>
         <changefreq><$mt:Var name="category-frequency" _default="weekly"$></changefreq>
         <priority><$mt:Var name="category-priority" _default="0.8"$></priority>
